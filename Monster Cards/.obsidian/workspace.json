@@ -1,0 +1,151 @@
+{
+  "main": {
+    "id": "cedf460e1f4df046",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0fd36668382d17d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f66d360620a3be60",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3cbe27ef22b1a238",
+    "type": "split",
+    "children": [
+      {
+        "id": "baf76259da362586",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ca5180fb3cc7403",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "45a562bd0981e081",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8a841b8915a59e91",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9a7ad904fd53c492",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c19e0c95a6cdebb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a87a2cdf656a3438",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "publish:Publish changes...": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "random-note:Open random note": false,
+      "audio-recorder:Start/stop recording": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "f66d360620a3be60",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "Untitled.canvas",
+    "2024/Science/Chemistry/Quantitative Analysis/Write Up Notes.md",
+    "2024/Science/Chemistry/Redox/Balancing Half Equations.md",
+    "2024/Science/Chemistry/Redox/Practical Reactions.md",
+    "2024/Science/Chemistry/Redox/Oxidation Numbers.md",
+    "2024/Science/Chemistry/Redox/Balancing Full Equations.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Titration.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Stoichiometry.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Standard Solution.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Quantitive Analysis.canvas",
+    "2024/Science/Chemistry/Quantitative Analysis/Quantitive Analysis Do Nows.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Molar Mass.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Mole.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Dilution.md",
+    "2024/Science/Chemistry/Quantitative Analysis/Concentration.md",
+    "2024/Science/Chemistry/Redox/Redox Reactions.md",
+    "2024/Science/Chemistry/Redox/Redox Do Nows.md",
+    "2024/Science/Physics/Kinematics.md",
+    "2023/English/Oxford Comma.md",
+    "2024/Science/Chemistry/Redox/Redox.md",
+    "2023/English/12 Ways to Cast a Sentence.md",
+    "2024",
+    "2023",
+    "Science/Chemistry/Collision Theory.md",
+    "2024/Science/Chemistry/Quantitative Analysis",
+    "2024/Science/Chemistry/Redox",
+    "2023/The Great Reset.md",
+    "2024/Science/Chemistry",
+    "2024/Science/Physics",
+    "2023/Genetics Notes.md",
+    "2023/Computer Science/Documentation.md",
+    "Science Notes.md",
+    "2023/Definitions/concentration.md"
+  ]
+}

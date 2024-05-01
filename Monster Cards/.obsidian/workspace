@@ -1,0 +1,112 @@
+{
+  "main": {
+    "id": "cedf460e1f4df046",
+    "type": "split",
+    "children": [
+      {
+        "id": "142c312e2d06ab08",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Computer Science/Documentation.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3cbe27ef22b1a238",
+    "type": "split",
+    "children": [
+      {
+        "id": "baf76259da362586",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ca5180fb3cc7403",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "45a562bd0981e081",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c033288374edd3f1",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9a7ad904fd53c492",
+    "type": "split",
+    "children": [
+      {
+        "id": "4c19e0c95a6cdebb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a87a2cdf656a3438",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Computer Science/Documentation.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "142c312e2d06ab08",
+  "lastOpenFiles": [
+    "Computer Science/Documentation.md",
+    "Social Studies/Captain James Cook.md",
+    "The Language of Film 1.md",
+    "Social Studies/Civilization.md",
+    "The Language of Film.md",
+    "Social Studies/Ramses II.md",
+    "Social Studies/Egypt.md",
+    "Social Studies/Fertile Crescent.md",
+    "Social Studies/Ancient Mesopotamia Religion and Gods.md",
+    "Social Studies/Mesopotamia.md"
+  ]
+}
