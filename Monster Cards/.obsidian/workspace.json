@@ -6,9 +6,27 @@
       {
         "id": "a0fd36668382d17d",
         "type": "tabs",
+        "dimension": 38.32622601279317,
         "children": [
           {
             "id": "f66d360620a3be60",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Assessment - monster cards 2.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "40f48340ce052277",
+        "type": "tabs",
+        "dimension": 61.67377398720683,
+        "children": [
+          {
+            "id": "c9d8fe420dc9922d",
             "type": "leaf",
             "state": {
               "type": "kanban",
@@ -67,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9a7ad904fd53c492",
@@ -114,8 +133,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7ca5180fb3cc7403",
+  "active": "c9d8fe420dc9922d",
   "lastOpenFiles": [
+    "Assessment - monster cards 2.pdf",
     "Monster Cards Project Decomposition.md",
     "Untitled.md",
     "Untitled.canvas",
@@ -148,7 +168,6 @@
     "2024/Science/Chemistry",
     "2024/Science/Physics",
     "2023/Genetics Notes.md",
-    "2023/Computer Science/Documentation.md",
-    "Science Notes.md"
+    "2023/Computer Science/Documentation.md"
   ]
 }
