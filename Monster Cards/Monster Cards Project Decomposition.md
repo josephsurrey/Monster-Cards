@@ -8,6 +8,7 @@ kanban-plugin: basic
 
 - [ ] Main Window
 - [ ] Monster Card
+- [ ] Add Card
 - [ ] Search
 - [ ] Print
 - [ ] Delete
@@ -27,6 +28,13 @@ kanban-plugin: basic
 - [ ] Title
 - [ ] Image (optional)
 - [ ] Stats
+
+
+## Add Card
+
+- [ ] Add dialogue box to get information for adding a new card
+- [ ] Add error checking to make sure that unexpected inputs do not crash the program
+- [ ] Add the card to the card dictionary
 
 
 ## Search
