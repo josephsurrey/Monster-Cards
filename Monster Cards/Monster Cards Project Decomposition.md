@@ -23,23 +23,38 @@ kanban-plugin: basic
 
 ## Monster Card
 
+- [ ] Title
+- [ ] Image (optional)
+- [ ] Stats
 
 
 ## Search
 
+- [ ] Get search bar text
+- [ ] Filter cards
+- [ ] Update layout
 
 
 ## Print
 
+- [ ] Get selected card information
+- [ ] Print it to console
+- [ ] Use print dialogue to print to a printer (optional)
 
 
 ## Delete
 
+- [ ] Get selected cards
+- [ ] Remove selected cards
+- [ ] Update layout
 
 
 ## Advanced Functionality (only if have time)
 
 - [ ] View cards in a list (only names, statistics can be shown in an expanded view/dialog)
+- [ ] Sort function
+- [ ] Use print dialogue to print to a printer
+- [ ] Image in Monster Card
 
 
 
