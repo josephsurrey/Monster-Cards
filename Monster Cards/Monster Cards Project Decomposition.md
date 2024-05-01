@@ -17,6 +17,7 @@ kanban-plugin: basic
 
 - [ ] Search Box
 - [ ] Scroll Area to hold Monster Card widgets
+- [ ] Function to correctly display the cards inside the scrollArea
 - [ ] Functionality to select multiple cards to delete or print cards
 - [ ] Buttons for printing and deleting selected cards
 
