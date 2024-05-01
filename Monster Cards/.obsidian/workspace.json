@@ -11,8 +11,10 @@
             "id": "f66d360620a3be60",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "kanban",
+              "state": {
+                "file": "Monster Cards Project Decomposition.md"
+              }
             }
           }
         ]
@@ -81,6 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Monster Cards Project Decomposition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,8 +114,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f66d360620a3be60",
+  "active": "7ca5180fb3cc7403",
   "lastOpenFiles": [
+    "Monster Cards Project Decomposition.md",
     "Untitled.md",
     "Untitled.canvas",
     "2024/Science/Chemistry/Quantitative Analysis/Write Up Notes.md",
@@ -145,7 +149,6 @@
     "2024/Science/Physics",
     "2023/Genetics Notes.md",
     "2023/Computer Science/Documentation.md",
-    "Science Notes.md",
-    "2023/Definitions/concentration.md"
+    "Science Notes.md"
   ]
 }
