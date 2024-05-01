@@ -6,7 +6,7 @@
       {
         "id": "a0fd36668382d17d",
         "type": "tabs",
-        "dimension": 38.32622601279317,
+        "dimension": 36.140724946695094,
         "children": [
           {
             "id": "f66d360620a3be60",
@@ -21,12 +21,12 @@
         ]
       },
       {
-        "id": "40f48340ce052277",
+        "id": "13bf5a2742e9b23a",
         "type": "tabs",
-        "dimension": 61.67377398720683,
+        "dimension": 63.85927505330491,
         "children": [
           {
-            "id": "c9d8fe420dc9922d",
+            "id": "53f97d5334dad7c4",
             "type": "leaf",
             "state": {
               "type": "kanban",
@@ -133,7 +133,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "c9d8fe420dc9922d",
+  "active": "53f97d5334dad7c4",
   "lastOpenFiles": [
     "Assessment - monster cards 2.pdf",
     "Monster Cards Project Decomposition.md",
