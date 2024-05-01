@@ -56,7 +56,7 @@
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
-       <layout class="QGridLayout" name="gridLayout_3"/>
+       <layout class="QGridLayout" name="scrollAreaGridLayout"/>
       </widget>
      </widget>
     </item>
