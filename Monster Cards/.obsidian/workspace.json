@@ -6,6 +6,7 @@
       {
         "id": "a0fd36668382d17d",
         "type": "tabs",
+        "dimension": 31.87633262260128,
         "children": [
           {
             "id": "f66d360620a3be60",
@@ -14,6 +15,23 @@
               "type": "pdf",
               "state": {
                 "file": "Assessment - monster cards 2.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "4bff75a706fc049f",
+        "type": "tabs",
+        "dimension": 68.12366737739872,
+        "children": [
+          {
+            "id": "d3925bb14ee0115e",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "Monster Cards Project Decomposition.md"
               }
             }
           }
@@ -84,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Assessment - monster cards 2.pdf",
+                "file": "Monster Cards Project Decomposition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,10 +133,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f66d360620a3be60",
+  "active": "d3925bb14ee0115e",
   "lastOpenFiles": [
-    "Monster Cards Project Decomposition.md",
     "Assessment - monster cards 2.pdf",
+    "Monster Cards Project Decomposition.md",
     "Untitled.md",
     "Untitled.canvas",
     "2024/Science/Chemistry/Quantitative Analysis/Write Up Notes.md",
