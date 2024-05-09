@@ -28,6 +28,23 @@ class MainWindow(QtWidgets.QMainWindow):
         # Loads the .ui file for the main window
         loadUi("mainwindow.ui", self)
 
+    def update_cards(self):
+        """
+        Updates the cards in the scroll area.
+        """
+        # Varible to keep track of the position of each card
+        grid_number = 0
+        # Adds each card to the scroll area
+        for card in monster_cards:
+            # Find the scroll area layout
+            card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
+            # Create a new instance of the card widget
+            monster_card = MonsterCard()
+            # Add the card to the scroll area layout
+            card_layout.addWidget(monster_card, 0, grid_number)
+            # Increment the grid number
+            grid_number += 1
+
 
 class MonsterCard(QtWidgets.QWidget):
     """
@@ -44,5 +61,6 @@ class MonsterCard(QtWidgets.QWidget):
 
 app = QtWidgets.QApplication([])
 window = MainWindow()
+window.update_cards()
 window.show()
 app.exec()
