@@ -40,3 +40,9 @@ class MonsterCard(QtWidgets.QWidget):
         super(MonsterCard, self).__init__()
         # Loads the .ui file for the monster card
         loadUi("monstercard.ui", self)
+
+
+app = QtWidgets.QApplication([])
+window = MainWindow()
+window.show()
+app.exec()
