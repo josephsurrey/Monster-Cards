@@ -35,11 +35,29 @@ class MainWindow(QtWidgets.QMainWindow):
         # Varible to keep track of the position of each card
         grid_number = 0
         # Adds each card to the scroll area
-        for card in monster_cards:
+        for monster_name, stats in monster_cards.items():
             # Find the scroll area layout
             card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
             # Create a new instance of the card widget
             monster_card = MonsterCard()
+
+            # Set the name of the card and display it
+            monster_card_name = monster_card.findChild(QtWidgets.QLabel, "monster_name")
+            monster_card_name.setText(monster_name)
+
+            # Set the stats of the card and display it
+            monster_card_strength = monster_card.findChild(QtWidgets.QLabel, "strength_stat")
+            monster_card_strength.setText(f"Strength: {stats['Strength']}")
+
+            monster_card_speed = monster_card.findChild(QtWidgets.QLabel, "speed_stat")
+            monster_card_speed.setText(f"Speed: {stats['Speed']}")
+
+            monster_card_stealth = monster_card.findChild(QtWidgets.QLabel, "stealth_stat")
+            monster_card_stealth.setText(f"Stealth: {stats['Stealth']}")
+
+            monster_card_cunning = monster_card.findChild(QtWidgets.QLabel, "cunning_stat")
+            monster_card_cunning.setText(f"Cunning: {stats['Cunning']}")
+
             # Add the card to the scroll area layout
             card_layout.addWidget(monster_card, 0, grid_number)
             # Align the card to the top left
