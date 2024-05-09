@@ -42,6 +42,8 @@ class MainWindow(QtWidgets.QMainWindow):
             monster_card = MonsterCard()
             # Add the card to the scroll area layout
             card_layout.addWidget(monster_card, 0, grid_number)
+            # Align the card to the top left
+            card_layout.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)
             # Increment the grid number
             grid_number += 1
 
