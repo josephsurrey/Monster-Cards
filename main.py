@@ -2,7 +2,6 @@ from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
-
 monster_cards = {
     "Stoneling": {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
     "Vexscream": {"Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
@@ -23,8 +22,21 @@ class MainWindow(QtWidgets.QMainWindow):
     Class to hold the main window of the program, which includes the search bar,
     QScrollArea which holds the cards, and the select, delete, add, and print buttons.
     """
+
     def __init__(self):
         super(MainWindow, self).__init__()
         # Loads the .ui file for the main window
         loadUi("mainwindow.ui", self)
 
+
+class MonsterCard(QtWidgets.QWidget):
+    """
+    New instance of MonsterCard class.
+    Class to hold the card details.
+    Each MonsterCard is a QWidget, which is placed into the MainWindow's QScrollArea
+    """
+
+    def __init__(self):
+        super(MonsterCard, self).__init__()
+        # Loads the .ui file for the monster card
+        loadUi("monstercard.ui", self)
