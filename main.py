@@ -32,8 +32,16 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         Updates the cards in the scroll area.
         """
+
+        # Find the size of the scroll area
+        scroll_area = self.findChild(QtWidgets.QScrollArea, "cardScrollArea")
+        scroll_area_width = scroll_area.size().width()
+
         # Varible to keep track of the position of each card
-        grid_number = 0
+        horizontal_grid_number = 0
+        vertical_grid_number = 0
+        total_width = 0
+
         # Adds each card to the scroll area
         for monster_name, stats in monster_cards.items():
             # Find the scroll area layout
@@ -58,12 +66,24 @@ class MainWindow(QtWidgets.QMainWindow):
             monster_card_cunning = monster_card.findChild(QtWidgets.QLabel, "cunning_stat")
             monster_card_cunning.setText(f"Cunning: {stats['Cunning']}")
 
+            # Get the size of the card
+            card_size = monster_card.sizeHint()
+            total_width += card_size.width()
+
+            # Check if the total width of the cards is greater than the scroll area
+            if total_width > scroll_area_width:
+                vertical_grid_number += 1
+                horizontal_grid_number = 0
+                total_width = card_size.width()
+
             # Add the card to the scroll area layout
-            card_layout.addWidget(monster_card, 0, grid_number)
+            card_layout.addWidget(monster_card, vertical_grid_number, horizontal_grid_number)
             # Align the card to the top left
             card_layout.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)
-            # Increment the grid number
-            grid_number += 1
+
+            # Increment the horizontal grid number
+            horizontal_grid_number += 1
+
 
 
 class MonsterCard(QtWidgets.QWidget):
