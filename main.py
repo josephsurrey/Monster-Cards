@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
@@ -27,13 +27,6 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
         # Loads the .ui file for the main window
         loadUi("mainwindow.ui", self)
-        self.scroll_area = self.findChild(QtWidgets.QScrollArea, "cardScrollArea")
-        self.scroll_area.installEventFilter(self)
-
-    def eventFilter(self, obj, event):
-        """
-        Filters out horizontal scroll events in the QScrollArea, so that it only scrolls vertically.
-        """
 
     def update_cards(self):
         """
@@ -45,7 +38,6 @@ class MainWindow(QtWidgets.QMainWindow):
         for monster_name, stats in monster_cards.items():
             # Find the scroll area layout
             card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
-
             # Create a new instance of the card widget
             monster_card = MonsterCard()
 
