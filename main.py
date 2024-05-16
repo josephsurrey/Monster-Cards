@@ -113,11 +113,18 @@ class MainWindow(QtWidgets.QMainWindow):
         add_card_dialog = AddCardDialog()
         # If the dialogue is accepted, add the card
         if add_card_dialog.exec():
+            # Get the details of the new card
             monster_name = add_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
             strength = add_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
             speed = add_card_dialog.findChild(QtWidgets.QSpinBox, "speed_stat_value").value()
             stealth = add_card_dialog.findChild(QtWidgets.QSpinBox, "stealth_stat_value").value()
             cunning = add_card_dialog.findChild(QtWidgets.QSpinBox, "cunning_stat_value").value()
+
+            # Add the card to the monster_cards dictionary
+            monster_cards[monster_name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
+
+            # Update the cards
+            self.update_cards()
 
 
 class MonsterCard(QtWidgets.QWidget):
