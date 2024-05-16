@@ -99,6 +99,14 @@ class MainWindow(QtWidgets.QMainWindow):
             # Increment the horizontal grid number
             horizontal_grid_number += 1
 
+    def add_card(self):
+        """
+        Function to add a new card to the database.
+        Opens a dialogue where the use will be prompted to enter the details of the new card.
+        Adds the card to the database.
+        """
+        loadUi("add_card_dialogue.ui", self)
+
 
 class MonsterCard(QtWidgets.QWidget):
     """
