@@ -28,16 +28,28 @@ class MainWindow(QtWidgets.QMainWindow):
         # Loads the .ui file for the main window
         loadUi("mainwindow.ui", self)
 
+    def resizeEvent(self, a0):
+        self.update_cards()
+
     def update_cards(self):
         """
         Updates the cards in the scroll area.
         """
 
-        # Find the size of the scroll area
-        scroll_area = self.findChild(QtWidgets.QScrollArea, "cardScrollArea")
-        scroll_area_width = scroll_area.size().width()
+        # Clear the scroll area
+        card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
+        for card in range(card_layout.count()):
+            card_layout.itemAt(card).widget().hide()
+            card_layout.itemAt(card).widget().deleteLater()
 
-        # Varible to keep track of the position of each card
+        # Find the size of the scroll area
+        scroll_area = self.findChild(QtWidgets.QWidget, "scrollAreaWidgetContents")
+        scroll_area_width = scroll_area.width()
+
+        # Show borders for debugging
+        # scroll_area.setStyleSheet("border: 1px solid red;")
+
+        # Variable to keep track of the position of each card
         horizontal_grid_number = 0
         vertical_grid_number = 0
         total_width = 0
@@ -70,6 +82,9 @@ class MainWindow(QtWidgets.QMainWindow):
             card_size = monster_card.sizeHint()
             total_width += card_size.width()
 
+            print(f"Total width: {total_width}")
+            print(f"Scroll area width: {scroll_area_width}")
+
             # Check if the total width of the cards is greater than the scroll area
             if total_width > scroll_area_width:
                 vertical_grid_number += 1
@@ -85,7 +100,6 @@ class MainWindow(QtWidgets.QMainWindow):
             horizontal_grid_number += 1
 
 
-
 class MonsterCard(QtWidgets.QWidget):
     """
     New instance of MonsterCard class.
@@ -99,8 +113,9 @@ class MonsterCard(QtWidgets.QWidget):
         loadUi("monstercard.ui", self)
 
 
+# Run the application
 app = QtWidgets.QApplication([])
 window = MainWindow()
-window.update_cards()
 window.show()
+window.update_cards()
 app.exec()
