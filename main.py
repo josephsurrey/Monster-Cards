@@ -28,7 +28,14 @@ class MainWindow(QtWidgets.QMainWindow):
         # Loads the .ui file for the main window
         loadUi("mainwindow.ui", self)
 
+        # Connects the add card button to the add_card function
+        self.addButton = self.findChild(QtWidgets.QPushButton, "addButton")
+        self.addButton.clicked.connect(self.add_card)
+
     def resizeEvent(self, a0):
+        """
+        Function that updates the cards when the window is resized.
+        """
         self.update_cards()
 
     def update_cards(self):
@@ -82,9 +89,6 @@ class MainWindow(QtWidgets.QMainWindow):
             card_size = monster_card.sizeHint()
             total_width += card_size.width()
 
-            print(f"Total width: {total_width}")
-            print(f"Scroll area width: {scroll_area_width}")
-
             # Check if the total width of the cards is greater than the scroll area
             if total_width > scroll_area_width:
                 vertical_grid_number += 1
@@ -105,7 +109,15 @@ class MainWindow(QtWidgets.QMainWindow):
         Opens a dialogue where the use will be prompted to enter the details of the new card.
         Adds the card to the database.
         """
-        loadUi("add_card_dialogue.ui", self)
+        # Open the add card dialogue
+        add_card_dialog = AddCardDialog()
+        # If the dialogue is accepted, add the card
+        if add_card_dialog.exec():
+            monster_name = add_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
+            strength = add_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
+            speed = add_card_dialog.findChild(QtWidgets.QSpinBox, "speed_stat_value").value()
+            stealth = add_card_dialog.findChild(QtWidgets.QSpinBox, "stealth_stat_value").value()
+            cunning = add_card_dialog.findChild(QtWidgets.QSpinBox, "cunning_stat_value").value()
 
 
 class MonsterCard(QtWidgets.QWidget):
@@ -119,6 +131,18 @@ class MonsterCard(QtWidgets.QWidget):
         super(MonsterCard, self).__init__()
         # Loads the .ui file for the monster card
         loadUi("monstercard.ui", self)
+
+
+class AddCardDialog(QtWidgets.QDialog):
+    """
+    New instance of AddCardDialogue class.
+    Class to hold the add card dialogue.
+    """
+
+    def __init__(self):
+        super(AddCardDialog, self).__init__()
+        # Loads the .ui file for the add card dialogue
+        loadUi("add_card_dialog.ui", self)
 
 
 # Run the application
