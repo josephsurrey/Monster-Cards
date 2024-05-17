@@ -32,6 +32,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.addButton = self.findChild(QtWidgets.QPushButton, "addButton")
         self.addButton.clicked.connect(self.add_card)
 
+        # Variable to hold the selection mode
+        self.selection_mode = False
+        # Connects the selection mode variable to the select button
+        self.selectButton = self.findChild(QtWidgets.QPushButton, "selectButton")
+        self.selectButton.clicked.connect(self.toggle_selection_mode)
+
     def resizeEvent(self, a0):
         """
         Function that updates the cards when the window is resized.
