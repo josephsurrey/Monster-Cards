@@ -177,8 +177,12 @@ class MonsterCard(QtWidgets.QWidget):
         if MonsterCard.selection_mode:
             if self.selected:
                 self.selected = False
+                # Set the background color of the card to show it is not selected
+                self.setStyleSheet("")
             else:
                 self.selected = True
+                # Set the background color of the card to show it is selected
+                self.setStyleSheet("background-color: rgb(173, 216, 230)")
 
 
 class AddCardDialog(QtWidgets.QDialog):
