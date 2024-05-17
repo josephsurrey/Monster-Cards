@@ -132,6 +132,17 @@ class MainWindow(QtWidgets.QMainWindow):
             # Update the cards
             self.update_cards()
 
+    def toggle_selection_mode(self):
+        """
+        Toggles the selection mode.
+        """
+        if self.selection_mode:
+            self.selection_mode = False
+            self.selectButton.setText("Select")
+        else:
+            self.selection_mode = True
+            self.selectButton.setText("Deselect")
+
 
 class MonsterCard(QtWidgets.QWidget):
     """
