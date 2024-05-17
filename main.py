@@ -1,5 +1,5 @@
 from PyQt6 import QtWidgets
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.uic import loadUi
 
 monster_cards = {
@@ -34,9 +34,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Variable to hold the selection mode
         self.selection_mode = False
-        # Connects the selection mode variable to the select button
+        # Connects the select button to the toggle_selection_mode function
         self.selectButton = self.findChild(QtWidgets.QPushButton, "selectButton")
         self.selectButton.clicked.connect(self.toggle_selection_mode)
+        # Connects the select button to the toggle_selection_mode function in the MonsterCard class
+        self.selectButton.clicked.connect(MonsterCard.toggle_selection_mode)
 
     def resizeEvent(self, a0):
         """
@@ -151,10 +153,32 @@ class MonsterCard(QtWidgets.QWidget):
     Each MonsterCard is a QWidget, which is placed into the MainWindow's QScrollArea
     """
 
+    # Variable to hold the selection mode
+    selection_mode = False
+
     def __init__(self):
         super(MonsterCard, self).__init__()
         # Loads the .ui file for the monster card
         loadUi("monstercard.ui", self)
+
+        # Variable for the selection function
+        self.selected = False
+
+    def toggle_selection_mode(self):
+        """
+        Sets the selection mode.
+        """
+        MonsterCard.selection_mode = not MonsterCard.selection_mode
+
+    def mousePressEvent(self, event):
+        """
+        If selection mode is on, toggle the selected variable.
+        """
+        if MonsterCard.selection_mode:
+            if self.selected:
+                self.selected = False
+            else:
+                self.selected = True
 
 
 class AddCardDialog(QtWidgets.QDialog):
