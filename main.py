@@ -131,6 +131,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selectButton.setText("Select" if self.selection_mode else "Deselect")
         self.selection_mode = not self.selection_mode
         setattr(MonsterCard, "selection_mode", not MonsterCard.selection_mode)
+        if not self.selection_mode:
+            for card in self.findChildren(MonsterCard):
+                if card.selected:
+                    card.selected = False
+                    card.setStyleSheet("")
 
 
 class MonsterCard(QtWidgets.QWidget):
