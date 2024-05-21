@@ -186,6 +186,23 @@ class MainWindow(QtWidgets.QMainWindow):
                                  f"{speed}\n"
                                  f"{stealth}\n"
                                  f"{cunning}\n")
+
+        # If no cards are selected, print all card details to the console
+        if print_output == "":
+            for card in self.findChildren(MonsterCard):
+                monster_name = card.findChild(QtWidgets.QLabel, "monster_name").text()
+                strength = card.findChild(QtWidgets.QLabel, "strength_stat").text()
+                speed = card.findChild(QtWidgets.QLabel, "speed_stat").text()
+                stealth = card.findChild(QtWidgets.QLabel, "stealth_stat").text()
+                cunning = card.findChild(QtWidgets.QLabel, "cunning_stat").text()
+
+                print_output += (f"--------------------------------\n"
+                                 f"Monster Name: {monster_name}\n"
+                                 f"{strength}\n"
+                                 f"{speed}\n"
+                                 f"{stealth}\n"
+                                 f"{cunning}\n")
+
         print_output += "--------------------------------\n"
         # Print the print output to the console
         print(print_output)
