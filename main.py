@@ -162,7 +162,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # Update cards list
         self.update_cards()
         # Set selection mode to False
-        self.toggle_selection_mode()
+        self.selection_mode = False
+        # Change selection button text
+        self.selectButton.setText("Select")
 
     def print_cards(self):
         """
