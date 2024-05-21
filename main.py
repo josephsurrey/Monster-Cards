@@ -160,6 +160,22 @@ class MainWindow(QtWidgets.QMainWindow):
         # Set selection mode to False
         self.toggle_selection_mode()
 
+    def print_cards(self):
+        """
+        Function to print all selected cards.
+        Gets the list of all the currently selected cards, formats them and prints them to the console.
+        If no cards are selected, prints all card details to the console.
+        """
+        print_output = ""
+        # Iterate through selected cards and add the details of selected cards to the print output
+        for card in self.findChildren(MonsterCard):
+            if card.selected:
+                monster_name = card.findChild(QtWidgets.QLabel, "monster_name").text()
+                strength = card.findChild(QtWidgets.QLabel, "strength_stat").text()
+                speed = card.findChild(QtWidgets.QLabel, "speed_stat").text()
+                stealth = card.findChild(QtWidgets.QLabel, "stealth_stat").text()
+                cunning = card.findChild(QtWidgets.QLabel, "cunning_stat").text()
+
 
 class MonsterCard(QtWidgets.QWidget):
     """
