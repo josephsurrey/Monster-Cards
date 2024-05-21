@@ -38,6 +38,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selectButton = self.findChild(QtWidgets.QPushButton, "selectButton")
         self.selectButton.clicked.connect(self.toggle_selection_mode)
 
+        # Connects the delete button to the delete_card function
+        self.deleteButton = self.findChild(QtWidgets.QPushButton, "deleteButton")
+        self.deleteButton.clicked.connect(self.delete_card)
+
     def resizeEvent(self, a0):
         """
         Function that updates the cards when the window is resized.
@@ -136,6 +140,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 if card.selected:
                     card.selected = False
                     card.setStyleSheet("")
+
+    def delete_card(self):
+        for card in self.findChildren(MonsterCard):
+            if card.selected:
+                monster_cards.pop(card.findChild(QtWidgets.QLabel, "monster_name").text())
+                self.update_cards()
 
 
 class MonsterCard(QtWidgets.QWidget):
