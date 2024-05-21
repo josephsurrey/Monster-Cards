@@ -42,6 +42,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.deleteButton = self.findChild(QtWidgets.QPushButton, "deleteButton")
         self.deleteButton.clicked.connect(self.delete_card)
 
+        # Connects the print button to the print_cards function
+        self.printButton = self.findChild(QtWidgets.QPushButton, "printButton")
+        self.printButton.clicked.connect(self.print_cards)
+
     def resizeEvent(self, a0):
         """
         Function that updates the cards when the window is resized.
