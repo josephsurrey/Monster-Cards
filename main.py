@@ -74,22 +74,14 @@ class MainWindow(QtWidgets.QMainWindow):
             # Create a new instance of the card widget
             monster_card = MonsterCard()
 
-            # Set the name of the card and display it
-            monster_card_name = monster_card.findChild(QtWidgets.QLabel, "monster_name")
-            monster_card_name.setText(monster_name)
+            # Set the name of the card
+            monster_card.findChild(QtWidgets.QLabel, "monster_name").setText(monster_name)
 
-            # Set the stats of the card and display it
-            monster_card_strength = monster_card.findChild(QtWidgets.QLabel, "strength_stat")
-            monster_card_strength.setText(f"Strength: {stats['Strength']}")
-
-            monster_card_speed = monster_card.findChild(QtWidgets.QLabel, "speed_stat")
-            monster_card_speed.setText(f"Speed: {stats['Speed']}")
-
-            monster_card_stealth = monster_card.findChild(QtWidgets.QLabel, "stealth_stat")
-            monster_card_stealth.setText(f"Stealth: {stats['Stealth']}")
-
-            monster_card_cunning = monster_card.findChild(QtWidgets.QLabel, "cunning_stat")
-            monster_card_cunning.setText(f"Cunning: {stats['Cunning']}")
+            # Set the stats of the card
+            monster_card.findChild(QtWidgets.QLabel, "strength_stat").setText(f"Strength: {stats['Strength']}")
+            monster_card.findChild(QtWidgets.QLabel, "speed_stat").setText(f"Speed: {stats['Speed']}")
+            monster_card.findChild(QtWidgets.QLabel, "stealth_stat").setText(f"Stealth: {stats['Stealth']}")
+            monster_card.findChild(QtWidgets.QLabel, "cunning_stat").setText(f"Cunning: {stats['Cunning']}")
 
             # Get the size of the card
             card_size = monster_card.sizeHint()
