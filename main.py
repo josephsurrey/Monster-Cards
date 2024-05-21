@@ -37,8 +37,6 @@ class MainWindow(QtWidgets.QMainWindow):
         # Connects the select button to the toggle_selection_mode function
         self.selectButton = self.findChild(QtWidgets.QPushButton, "selectButton")
         self.selectButton.clicked.connect(self.toggle_selection_mode)
-        # Toggles the selection mode when the select button is clicked
-        self.selectButton.clicked.connect(lambda: setattr(MonsterCard, "selection_mode", not MonsterCard.selection_mode))
 
     def resizeEvent(self, a0):
         """
@@ -138,12 +136,9 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         Toggles the selection mode.
         """
-        if self.selection_mode:
-            self.selection_mode = False
-            self.selectButton.setText("Select")
-        else:
-            self.selection_mode = True
-            self.selectButton.setText("Deselect")
+        self.selectButton.setText("Select" if self.selection_mode else "Deselect")
+        self.selection_mode = not self.selection_mode
+        setattr(MonsterCard, "selection_mode", not MonsterCard.selection_mode)
 
 
 class MonsterCard(QtWidgets.QWidget):
