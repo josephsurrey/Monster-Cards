@@ -176,6 +176,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 stealth = card.findChild(QtWidgets.QLabel, "stealth_stat").text()
                 cunning = card.findChild(QtWidgets.QLabel, "cunning_stat").text()
 
+                print_output += (f"--------------------------------\n"
+                                 f"Monster Name: {monster_name}\n"
+                                 f"{strength}\n"
+                                 f"{speed}\n"
+                                 f"{stealth}\n"
+                                 f"{cunning}\n")
+        print_output += "--------------------------------\n"
+        # Print the print output to the console
+        print(print_output)
+
 
 class MonsterCard(QtWidgets.QWidget):
     """
