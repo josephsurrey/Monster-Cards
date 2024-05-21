@@ -165,6 +165,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selection_mode = False
         # Change selection button text
         self.selectButton.setText("Select")
+        # Changes the selection mode for all MonsterCard instances
+        setattr(MonsterCard, "selection_mode", False)
 
     def print_cards(self):
         """
