@@ -132,9 +132,13 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         Toggles the selection mode.
         """
+        # Changes the button text
         self.selectButton.setText("Select" if self.selection_mode else "Deselect")
+        # Changes the selection mode
         self.selection_mode = not self.selection_mode
+        # Changes the selection mode for all MonsterCard instances
         setattr(MonsterCard, "selection_mode", not MonsterCard.selection_mode)
+        # Deselects all cards when the selection mode is disabled (False)
         if not self.selection_mode:
             for card in self.findChildren(MonsterCard):
                 if card.selected:
@@ -142,6 +146,10 @@ class MainWindow(QtWidgets.QMainWindow):
                     card.setStyleSheet("")
 
     def delete_card(self):
+        """
+        Function to delete a card, iterating through MonsterCard children,
+        removing selected cards from monster_cards, and updating the cards.
+        """
         for card in self.findChildren(MonsterCard):
             if card.selected:
                 monster_cards.pop(card.findChild(QtWidgets.QLabel, "monster_name").text())
