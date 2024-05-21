@@ -150,10 +150,15 @@ class MainWindow(QtWidgets.QMainWindow):
         Function to delete a card, iterating through MonsterCard children,
         removing selected cards from monster_cards, and updating the cards.
         """
+        # Find selected cards
         for card in self.findChildren(MonsterCard):
             if card.selected:
+                # Delete the card
                 monster_cards.pop(card.findChild(QtWidgets.QLabel, "monster_name").text())
-                self.update_cards()
+        # Update cards list
+        self.update_cards()
+        # Set selection mode to False
+        self.toggle_selection_mode()
 
 
 class MonsterCard(QtWidgets.QWidget):
