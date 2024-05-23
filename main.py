@@ -1,5 +1,5 @@
 from PyQt6 import QtWidgets
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
 monster_cards = {
@@ -14,6 +14,9 @@ monster_cards = {
     "Froststep": {"Strength": 14, "Speed": 14, "Stealth": 17, "Cunning": 4},
     "Wispghoul": {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2},
 }
+
+# Lsit to store displayed cards
+displayed_cards = {}
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -83,7 +86,7 @@ class MainWindow(QtWidgets.QMainWindow):
         total_width = 0
 
         # Adds each card to the scroll area
-        for monster_name, stats in monster_cards.items():
+        for monster_name, stats in displayed_cards.items():
             # Find the scroll area layout
             card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
             # Create a new instance of the card widget
@@ -219,7 +222,16 @@ class MainWindow(QtWidgets.QMainWindow):
         print(print_output)
 
     def search(self):
-        pass
+        """
+        Function to search for cards.
+        Runs on change in the search bar text.
+        """
+        search_query = self.searchBar.text()
+
+        # Check if monster name matches search query
+        for card in monster_cards:
+            if search_query.lower() in card.lower():
+                displayed_cards[card] = monster_cards[card]
 
 
 class MonsterCard(QtWidgets.QWidget):
