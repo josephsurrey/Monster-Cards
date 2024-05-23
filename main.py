@@ -46,6 +46,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.printButton = self.findChild(QtWidgets.QPushButton, "printButton")
         self.printButton.clicked.connect(self.print_cards)
 
+        # Connects the search bar to the search function
+        self.searchBar = self.findChild(QtWidgets.QLineEdit, "searchBar")
+        self.searchBar.textChanged.connect(self.search)
+
+        # Updates the cards
+        self.update_cards()
+
     def resizeEvent(self, a0):
         """
         Function that updates the cards when the window is resized.
@@ -210,6 +217,9 @@ class MainWindow(QtWidgets.QMainWindow):
         print_output += "--------------------------------\n"
         # Print the print output to the console
         print(print_output)
+
+    def search(self):
+        pass
 
 
 class MonsterCard(QtWidgets.QWidget):
