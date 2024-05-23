@@ -46,6 +46,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.printButton = self.findChild(QtWidgets.QPushButton, "printButton")
         self.printButton.clicked.connect(self.print_cards)
 
+        # Connects the search bar to the search function
+        self.searchBar = self.findChild(QtWidgets.QLineEdit, "searchBar")
+        self.searchBar.textChanged.connect(self.update_cards)
+
+        # Updates the cards
+        self.update_cards()
+
     def resizeEvent(self, a0):
         """
         Function that updates the cards when the window is resized.
@@ -77,37 +84,38 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Adds each card to the scroll area
         for monster_name, stats in monster_cards.items():
-            # Find the scroll area layout
-            card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
-            # Create a new instance of the card widget
-            monster_card = MonsterCard()
+            if self.searchBar.text().lower() in monster_name.lower():
+                # Find the scroll area layout
+                card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
+                # Create a new instance of the card widget
+                monster_card = MonsterCard()
 
-            # Set the name of the card
-            monster_card.findChild(QtWidgets.QLabel, "monster_name").setText(monster_name)
+                # Set the name of the card
+                monster_card.findChild(QtWidgets.QLabel, "monster_name").setText(monster_name)
 
-            # Set the stats of the card
-            monster_card.findChild(QtWidgets.QLabel, "strength_stat").setText(f"Strength: {stats['Strength']}")
-            monster_card.findChild(QtWidgets.QLabel, "speed_stat").setText(f"Speed: {stats['Speed']}")
-            monster_card.findChild(QtWidgets.QLabel, "stealth_stat").setText(f"Stealth: {stats['Stealth']}")
-            monster_card.findChild(QtWidgets.QLabel, "cunning_stat").setText(f"Cunning: {stats['Cunning']}")
+                # Set the stats of the card
+                monster_card.findChild(QtWidgets.QLabel, "strength_stat").setText(f"Strength: {stats['Strength']}")
+                monster_card.findChild(QtWidgets.QLabel, "speed_stat").setText(f"Speed: {stats['Speed']}")
+                monster_card.findChild(QtWidgets.QLabel, "stealth_stat").setText(f"Stealth: {stats['Stealth']}")
+                monster_card.findChild(QtWidgets.QLabel, "cunning_stat").setText(f"Cunning: {stats['Cunning']}")
 
-            # Get the size of the card
-            card_size = monster_card.sizeHint()
-            total_width += card_size.width()
+                # Get the size of the card
+                card_size = monster_card.sizeHint()
+                total_width += card_size.width()
 
-            # Check if the total width of the cards is greater than the scroll area
-            if total_width > scroll_area_width:
-                vertical_grid_number += 1
-                horizontal_grid_number = 0
-                total_width = card_size.width()
+                # Check if the total width of the cards is greater than the scroll area
+                if total_width > scroll_area_width:
+                    vertical_grid_number += 1
+                    horizontal_grid_number = 0
+                    total_width = card_size.width()
 
-            # Add the card to the scroll area layout
-            card_layout.addWidget(monster_card, vertical_grid_number, horizontal_grid_number)
-            # Align the card to the top left
-            card_layout.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)
+                # Add the card to the scroll area layout
+                card_layout.addWidget(monster_card, vertical_grid_number, horizontal_grid_number)
+                # Align the card to the top left
+                card_layout.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)
 
-            # Increment the horizontal grid number
-            horizontal_grid_number += 1
+                # Increment the horizontal grid number
+                horizontal_grid_number += 1
 
     def add_card(self):
         """
