@@ -255,14 +255,23 @@ class MonsterCard(QtWidgets.QWidget):
 
 class AddCardDialog(QtWidgets.QDialog):
     """
-    New instance of AddCardDialogue class.
-    Class to hold the add card dialogue.
+    New instance of AddCardDialog class.
+    Class to hold the add card dialog.
+    Takes monster name and stats as optional parameters to be used when editing a card.
+    If these are provided, the dialog is set with the values.
     """
 
-    def __init__(self):
+    def __init__(self, monster_name=None, strength=None, speed=None, stealth=None, cunning=None):
         super(AddCardDialog, self).__init__()
         # Loads the .ui file for the add card dialogue
         loadUi("add_card_dialog.ui", self)
+
+        if monster_name:
+            self.findChild(QtWidgets.QLineEdit, "monster_name_value").setText(monster_name)
+            self.findChild(QtWidgets.QSpinBox, "strength_stat_value").setValue(strength)
+            self.findChild(QtWidgets.QSpinBox, "speed_stat_value").setValue(speed)
+            self.findChild(QtWidgets.QSpinBox, "stealth_stat_value").setValue(stealth)
+            self.findChild(QtWidgets.QSpinBox, "cunning_stat_value").setValue(cunning)
 
 
 # Run the application
