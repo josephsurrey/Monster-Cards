@@ -230,7 +230,7 @@ class MonsterCard(QtWidgets.QWidget):
     # Variable to hold the selection mode
     selection_mode = False
 
-    def __init__(self, window):
+    def __init__(self, main_window):
         super(MonsterCard, self).__init__()
         # Loads the .ui file for the monster card
         loadUi("monstercard.ui", self)
@@ -238,7 +238,7 @@ class MonsterCard(QtWidgets.QWidget):
         # Variable for the selection function
         self.selected = False
 
-        self.window = window
+        self.window = main_window
 
     def mousePressEvent(self, event):
         """
@@ -276,6 +276,8 @@ class MonsterCard(QtWidgets.QWidget):
 
         edit_card_dialog = AddCardDialog(monster_name, strength, speed, stealth, cunning)
         if edit_card_dialog.exec():
+            # Remove the old version of the card from the monster_cards dictionary
+            monster_cards.pop(monster_name)
             # Get the modified details of the card
             monster_name = edit_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
             strength = edit_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
@@ -286,6 +288,7 @@ class MonsterCard(QtWidgets.QWidget):
             # Edit the card in the monster_cards dictionary
             monster_cards[monster_name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
 
+        # Update the cards
         self.window.update_cards()
 
 
