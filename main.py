@@ -272,6 +272,18 @@ class MonsterCard(QtWidgets.QWidget):
         stealth = monster_cards[monster_name]["Stealth"]
         cunning = monster_cards[monster_name]["Cunning"]
 
+        edit_card_dialog = AddCardDialog(monster_name, strength, speed, stealth, cunning)
+        if edit_card_dialog.exec():
+            # Get the details of the new card
+            monster_name = edit_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
+            strength = edit_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
+            speed = edit_card_dialog.findChild(QtWidgets.QSpinBox, "speed_stat_value").value()
+            stealth = edit_card_dialog.findChild(QtWidgets.QSpinBox, "stealth_stat_value").value()
+            cunning = edit_card_dialog.findChild(QtWidgets.QSpinBox, "cunning_stat_value").value()
+
+            # Add the card to the monster_cards dictionary
+            monster_cards[monster_name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
+
 
 class AddCardDialog(QtWidgets.QDialog):
     """
