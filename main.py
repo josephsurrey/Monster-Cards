@@ -88,7 +88,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 # Find the scroll area layout
                 card_layout = self.findChild(QtWidgets.QGridLayout, "scrollAreaGridLayout")
                 # Create a new instance of the card widget
-                monster_card = MonsterCard()
+                monster_card = MonsterCard(self)
 
                 # Set the name of the card
                 monster_card.findChild(QtWidgets.QLabel, "monster_name").setText(monster_name)
@@ -254,13 +254,15 @@ class MonsterCard(QtWidgets.QWidget):
     # Variable to hold the selection mode
     selection_mode = False
 
-    def __init__(self):
+    def __init__(self, main_window):
         super(MonsterCard, self).__init__()
         # Loads the .ui file for the monster card
         loadUi("monstercard.ui", self)
 
         # Variable for the selection function
         self.selected = False
+
+        self.window = main_window
 
     def mousePressEvent(self, event):
         """
@@ -275,6 +277,43 @@ class MonsterCard(QtWidgets.QWidget):
                 self.selected = True
                 # Set the background color of the card to show it is selected
                 self.setStyleSheet("background-color: rgb(173, 216, 230)")
+
+    def mouseDoubleClickEvent(self, a0):
+        """
+        If card is double clicked, run edit_card function
+        """
+        self.edit_card()
+
+    def edit_card(self):
+        """
+        Function to edit a Monster Card.
+        When a card is double clicked, function is run.
+        Add card dialogue is used to edit the details of the card.
+        """
+
+        # Get the details of the card
+        monster_name = self.findChild(QtWidgets.QLabel, "monster_name").text()
+        strength = monster_cards[monster_name]["Strength"]
+        speed = monster_cards[monster_name]["Speed"]
+        stealth = monster_cards[monster_name]["Stealth"]
+        cunning = monster_cards[monster_name]["Cunning"]
+
+        edit_card_dialog = AddCardDialog(monster_name, strength, speed, stealth, cunning)
+        if edit_card_dialog.exec():
+            # Remove the old version of the card from the monster_cards dictionary
+            monster_cards.pop(monster_name)
+            # Get the modified details of the card
+            monster_name = edit_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
+            strength = edit_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
+            speed = edit_card_dialog.findChild(QtWidgets.QSpinBox, "speed_stat_value").value()
+            stealth = edit_card_dialog.findChild(QtWidgets.QSpinBox, "stealth_stat_value").value()
+            cunning = edit_card_dialog.findChild(QtWidgets.QSpinBox, "cunning_stat_value").value()
+
+            # Edit the card in the monster_cards dictionary
+            monster_cards[monster_name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
+
+        # Update the cards
+        self.window.update_cards()
 
 
 class AddCardDialog(QtWidgets.QDialog):

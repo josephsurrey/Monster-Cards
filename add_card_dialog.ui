@@ -36,7 +36,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="strength_stat_value"/>
+        <widget class="QSpinBox" name="strength_stat_value">
+         <property name="maximum">
+          <number>25</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="stealth_stat_label">
@@ -46,7 +50,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="stealth_stat_value"/>
+        <widget class="QSpinBox" name="stealth_stat_value">
+         <property name="maximum">
+          <number>25</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -60,7 +68,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="speed_stat_value"/>
+        <widget class="QSpinBox" name="speed_stat_value">
+         <property name="maximum">
+          <number>25</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="cunning_stat_label">
@@ -70,7 +82,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="cunning_stat_value"/>
+        <widget class="QSpinBox" name="cunning_stat_value">
+         <property name="maximum">
+          <number>25</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
