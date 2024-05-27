@@ -252,6 +252,26 @@ class MonsterCard(QtWidgets.QWidget):
                 # Set the background color of the card to show it is selected
                 self.setStyleSheet("background-color: rgb(173, 216, 230)")
 
+    def mouseDoubleClickEvent(self, a0):
+        """
+        If card is double clicked, run edit_card function
+        """
+        self.edit_card()
+
+    def edit_card(self):
+        """
+        Function to edit a Monster Card.
+        When a card is double clicked, function is run.
+        Add card dialogue is used to edit the details of the card.
+        """
+
+        # Get the details of the card
+        monster_name = self.findChild(QtWidgets.QLabel, "monster_name").text()
+        strength = monster_cards[monster_name]["Strength"]
+        speed = monster_cards[monster_name]["Speed"]
+        stealth = monster_cards[monster_name]["Stealth"]
+        cunning = monster_cards[monster_name]["Cunning"]
+
 
 class AddCardDialog(QtWidgets.QDialog):
     """
