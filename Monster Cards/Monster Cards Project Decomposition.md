@@ -8,54 +8,115 @@ kanban-plugin: basic
 
 - [ ] Main Window
 - [ ] Monster Card
-- [ ] Add Card
-- [ ] Search
-- [ ] Print
-- [ ] Delete
+- [ ] Add/edit card dialog
 
 
-## Main Window
+## Main Window - ui
 
 - [ ] Search Box
 - [ ] Scroll Area to hold Monster Card widgets
-- [ ] Function to correctly display the cards inside the scrollArea/update cards in scroll area
-- [ ] Functionality to select multiple cards to delete or print cards
-- [ ] Buttons for printing and deleting selected cards
+- [ ] Print, Select, Delete and Add buttons
 
 
-## Monster Card
+## Main Window - functionality
 
-- [ ] Title
-- [ ] Image (optional)
-- [ ] Stats
-
-
-## Add Card
-
-- [ ] Add dialogue box to get information for adding a new card
-- [ ] Add error checking to make sure that unexpected inputs do not crash the program
-- [ ] Add the card to the card dictionary
+- [ ] Update cards function
+- [ ] Add card function
+- [ ] Selection functionality
+- [ ] Delete card function
+- [ ] Print cards function
+- [ ] Edit card function
 
 
-## Search
+## Main Window - functionality - Update cards
 
-- [ ] Get search bar text
-- [ ] Filter cards
-- [ ] Update layout
-
-
-## Print
-
-- [ ] Get selected card information
-- [ ] Print it to console
-- [ ] Use print dialogue to print to a printer (optional)
+- [ ] Clear monster cards
+- [ ] Calculate scroll area size
+- [ ] Set details of the card
+- [ ] Calculate card position
+- [ ] Add monster card widget to scroll area and align
 
 
-## Delete
+## Main Window - functionality - Add card
 
-- [ ] Get selected cards
-- [ ] Remove selected cards
-- [ ] Update layout
+- [ ] Link add button to add_card function
+- [ ] Open AddCardDialog
+- [ ] Get card information from dialog
+- [ ] Update dictionary
+- [ ] Update cards
+
+
+## Main Window - functionality - Select cards
+
+- [ ] Link select button to toggle_selection_mode function
+- [ ] Change button text
+- [ ] Toggle selection mode
+- [ ] Change selection_mode attribute for MonsterCard instnaces
+- [ ] Deselect all cards if selection mode is disabled
+
+
+## Main Window - functionality - Delete card
+
+- [ ] Link delete button to delete_card function
+- [ ] Iterate through all cards and check if they are selected
+- [ ] If card is selected, remove from dictionary
+- [ ] Update cards
+- [ ] Set selection mode to false, button text to select, and set selection mode for Monster Card instances to false
+
+
+## Main Window - functionality - Print cards
+
+- [ ] Link print button to print_cards function
+- [ ] Iterate through all cards and check if they are selected
+- [ ] If card is selected, format and add to print_output
+- [ ] If print_output is empty, format all cards and add to print output
+- [ ] Print print_output
+
+
+## Main Window - functionality - Edit card
+
+- [ ] Get information of card to be edited
+- [ ] Open AddCardDialog with card stats as arguments
+- [ ] Get updated card information from dialog
+- [ ] Update dictionary
+- [ ] Update cards
+
+
+## Monster Card - ui
+
+- [ ] Label for title
+- [ ] Image placeholder
+- [ ] Labels for monster stats
+
+
+## Monster Card - functionality
+
+- [ ] Select card
+- [ ] Edit card
+
+
+## Monster Card - functionality - Select card
+
+- [ ] On mousePressEvent check if selection mode is true
+- [ ] If true and card is selected, deselect
+- [ ] If true and card not selected, select
+
+
+## Monster Card - functionality - Edit card
+
+- [ ] On mouseDoublePressEvent check if selection mode is false
+- [ ] If false, run the edit_card fuunction in MainWindow
+
+
+## Add/edit card dialog - ui
+
+- [ ] QLineEdit for monster name
+- [ ] Spinboxes and labels for the values
+
+
+## Add/edit card dialog - functionality
+
+- [ ] Optional arguments to take default details for monster
 
 
 ## Advanced Functionality (only if have time)
