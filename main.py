@@ -282,7 +282,8 @@ class MonsterCard(QtWidgets.QWidget):
         """
         If card is double clicked, run edit_card function
         """
-        self.edit_card()
+        if not self.selection_mode:
+            self.edit_card()
 
     def edit_card(self):
         """
