@@ -1,6 +1,8 @@
 from PyQt6 import QtWidgets
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
+
+import qdarktheme
 
 monster_cards = {
     "Stoneling": {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -125,6 +127,10 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         # Open the add card dialogue
         add_card_dialog = AddCardDialog()
+
+        # Set the title of the dialog
+        add_card_dialog.setWindowTitle("Add Card")
+
         # If the dialogue is accepted, add the card
         if add_card_dialog.exec():
             # Get the details of the new card
@@ -276,11 +282,11 @@ class MonsterCard(QtWidgets.QWidget):
             else:
                 self.selected = True
                 # Set the background color of the card to show it is selected
-                self.setStyleSheet("background-color: rgb(173, 216, 230)")
+                self.setStyleSheet("background-color: rgb(0, 153, 153)")
 
     def mouseDoubleClickEvent(self, a0):
         """
-        If card is double clicked, run edit_card function
+        If card is double-clicked, run edit_card function
         """
         if not self.selection_mode:
             self.edit_card()
@@ -288,7 +294,7 @@ class MonsterCard(QtWidgets.QWidget):
     def edit_card(self):
         """
         Function to edit a Monster Card.
-        When a card is double clicked, function is run.
+        When a card is double-clicked, function is run.
         Add card dialogue is used to edit the details of the card.
         """
 
@@ -299,7 +305,12 @@ class MonsterCard(QtWidgets.QWidget):
         stealth = monster_cards[monster_name]["Stealth"]
         cunning = monster_cards[monster_name]["Cunning"]
 
+        # Open the edit card dialog
         edit_card_dialog = AddCardDialog(monster_name, strength, speed, stealth, cunning)
+
+        # Set the title of the dialog
+        edit_card_dialog.setWindowTitle("Edit Card")
+
         if edit_card_dialog.exec():
             # Remove the old version of the card from the monster_cards dictionary
             monster_cards.pop(monster_name)
@@ -340,6 +351,7 @@ class AddCardDialog(QtWidgets.QDialog):
 
 # Run the application
 app = QtWidgets.QApplication([])
+qdarktheme.setup_theme("auto")
 window = MainWindow()
 window.show()
 window.update_cards()
