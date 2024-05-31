@@ -146,30 +146,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # Update the cards
             self.update_cards()
 
-    def edit_card(self, monster_name):
-        """
-        Function to edit a card, opening the edit card dialogue.
-        """
-        # Get the stats of the card being edited
-        stats = monster_cards[monster_name]
-        # Open the edit card dialogue
-        edit_card_dialog = AddCardDialog(monster_name,
-                                         stats["Strength"], stats["Speed"], stats["Stealth"], stats["Cunning"])
-        # If the dialogue is accepted, edit the card
-        if edit_card_dialog.exec():
-            # Get the details of the edited card
-            monster_name = edit_card_dialog.findChild(QtWidgets.QLineEdit, "monster_name_value").text()
-            strength = edit_card_dialog.findChild(QtWidgets.QSpinBox, "strength_stat_value").value()
-            speed = edit_card_dialog.findChild(QtWidgets.QSpinBox, "speed_stat_value").value()
-            stealth = edit_card_dialog.findChild(QtWidgets.QSpinBox, "stealth_stat_value").value()
-            cunning = edit_card_dialog.findChild(QtWidgets.QSpinBox, "cunning_stat_value").value()
-
-            # Edit the card in the monster_cards dictionary
-            monster_cards[monster_name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
-
-            # Update the cards
-            self.update_cards()
-
     def toggle_selection_mode(self):
         """
         Toggles the selection mode.
