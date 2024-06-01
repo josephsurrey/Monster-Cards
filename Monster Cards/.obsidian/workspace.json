@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b35c52aa0ad2f16a",
+        "id": "645b82256c08b5e8",
         "type": "tabs",
         "children": [
           {
-            "id": "451408007e6b4d6d",
+            "id": "3f16a2eda41c6473",
             "type": "leaf",
             "state": {
               "type": "kanban",
@@ -115,7 +115,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7ca5180fb3cc7403",
+  "active": "3f16a2eda41c6473",
   "lastOpenFiles": [
     "Monster Cards Project Decomposition.md",
     "Assessment - monster cards 2.pdf",

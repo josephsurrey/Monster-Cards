@@ -25,6 +25,9 @@ class MainWindow(QtWidgets.QMainWindow):
     QScrollArea which holds the cards, and the select, delete, add, and print buttons.
     """
 
+    # Attribute to hold the list of selected cards
+    selected_cards = []
+
     def __init__(self):
         super(MainWindow, self).__init__()
         # Loads the .ui file for the main window
@@ -159,17 +162,17 @@ class MainWindow(QtWidgets.QMainWindow):
                 if card.selected:
                     card.selected = False
                     card.setStyleSheet("")
+            # Clear the selected cards list
+            self.selected_cards.clear()
 
     def delete_card(self):
         """
         Function to delete a card, iterating through MonsterCard children,
         removing selected cards from monster_cards, and updating the cards.
         """
-        # Find selected cards
-        for card in self.findChildren(MonsterCard):
-            if card.selected:
-                # Delete the card
-                monster_cards.pop(card.findChild(QtWidgets.QLabel, "monster_name").text())
+        # Remove selected cards from monster_cards
+        for card in self.selected_cards:
+            monster_cards.pop(card)
         # Update cards list
         self.update_cards()
         # Set selection mode to False
@@ -178,6 +181,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.selectButton.setText("Select")
         # Changes the selection mode for all MonsterCard instances
         setattr(MonsterCard, "selection_mode", False)
+        # Clear the selected cards list
+        self.selected_cards.clear()
 
     def print_cards(self):
         """
@@ -186,37 +191,24 @@ class MainWindow(QtWidgets.QMainWindow):
         If no cards are selected, prints all card details to the console.
         """
         print_output = ""
-        # Iterate through selected cards and add the details of selected cards to the print output
-        for card in self.findChildren(MonsterCard):
-            if card.selected:
-                monster_name = card.findChild(QtWidgets.QLabel, "monster_name").text()
-                strength = card.findChild(QtWidgets.QLabel, "strength_stat").text()
-                speed = card.findChild(QtWidgets.QLabel, "speed_stat").text()
-                stealth = card.findChild(QtWidgets.QLabel, "stealth_stat").text()
-                cunning = card.findChild(QtWidgets.QLabel, "cunning_stat").text()
 
+        # If cards are selected, print them to the console, otherwise print all cards
+        if self.selected_cards:
+            for card in self.selected_cards:
                 print_output += (f"--------------------------------\n"
-                                 f"Monster Name: {monster_name}\n"
-                                 f"{strength}\n"
-                                 f"{speed}\n"
-                                 f"{stealth}\n"
-                                 f"{cunning}\n")
-
-        # If no cards are selected, print all card details to the console
-        if print_output == "":
-            for card in self.findChildren(MonsterCard):
-                monster_name = card.findChild(QtWidgets.QLabel, "monster_name").text()
-                strength = card.findChild(QtWidgets.QLabel, "strength_stat").text()
-                speed = card.findChild(QtWidgets.QLabel, "speed_stat").text()
-                stealth = card.findChild(QtWidgets.QLabel, "stealth_stat").text()
-                cunning = card.findChild(QtWidgets.QLabel, "cunning_stat").text()
-
+                                 f"Monster Name: {card}\n"
+                                 f"Strength: {monster_cards[card]['Strength']}\n"
+                                 f"Speed: {monster_cards[card]['Speed']}\n"
+                                 f"Stealth: {monster_cards[card]['Stealth']}\n"
+                                 f"Cunning: {monster_cards[card]['Cunning']}\n")
+        else:
+            for card in monster_cards:
                 print_output += (f"--------------------------------\n"
-                                 f"Monster Name: {monster_name}\n"
-                                 f"{strength}\n"
-                                 f"{speed}\n"
-                                 f"{stealth}\n"
-                                 f"{cunning}\n")
+                                 f"Monster Name: {card}\n"
+                                 f"Strength: {monster_cards[card]['Strength']}\n"
+                                 f"Speed: {monster_cards[card]['Speed']}\n"
+                                 f"Stealth: {monster_cards[card]['Stealth']}\n"
+                                 f"Cunning: {monster_cards[card]['Cunning']}\n")
 
         print_output += "--------------------------------\n"
         # Print the print output to the console
@@ -252,10 +244,17 @@ class MonsterCard(QtWidgets.QWidget):
                 self.selected = False
                 # Set the background color of the card to show it is not selected
                 self.setStyleSheet("")
+
+                # Remove the card from the list of selected cards
+                MainWindow.selected_cards.remove(self.findChild(QtWidgets.QLabel, "monster_name").text())
+
             else:
                 self.selected = True
                 # Set the background color of the card to show it is selected
                 self.setStyleSheet("background-color: rgb(0, 153, 153)")
+
+                # Add the card to the list of selected cards
+                MainWindow.selected_cards.append(self.findChild(QtWidgets.QLabel, "monster_name").text())
 
     def mouseDoubleClickEvent(self, a0):
         """
@@ -324,7 +323,7 @@ class AddCardDialog(QtWidgets.QDialog):
 
 # Run the application
 app = QtWidgets.QApplication([])
-qdarktheme.setup_theme("auto")
+qdarktheme.setup_theme("dark")
 window = MainWindow()
 window.show()
 window.update_cards()
