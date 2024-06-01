@@ -67,9 +67,9 @@ kanban-plugin: basic
 ## Main Window - functionality - Print cards
 
 - [ ] Link print button to print_cards function
-- [ ] Iterate through all cards and check if they are selected
-- [ ] If card is selected, format and add to print_output
-- [ ] If print_output is empty, format all cards and add to print output
+- [ ] Check if any cards are selected
+- [ ] If some are, format all selected cards and add to print_output
+- [ ] Otherwise format all cards and add to print_output
 - [ ] Print print_output
 
 
