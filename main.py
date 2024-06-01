@@ -76,9 +76,6 @@ class MainWindow(QtWidgets.QMainWindow):
         scroll_area = self.findChild(QtWidgets.QWidget, "scrollAreaWidgetContents")
         scroll_area_width = scroll_area.width()
 
-        # Show borders for debugging
-        # scroll_area.setStyleSheet("border: 1px solid red;")
-
         # Variable to keep track of the position of each card
         horizontal_grid_number = 0
         vertical_grid_number = 0
