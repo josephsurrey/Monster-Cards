@@ -207,12 +207,13 @@ class MainWindow(QtWidgets.QMainWindow):
                                  f"Cunning: {monster_cards[card]['Cunning']}\n")
         else:
             for card in monster_cards:
-                print_output += (f"--------------------------------\n"
-                                 f"Monster Name: {card}\n"
-                                 f"Strength: {monster_cards[card]['Strength']}\n"
-                                 f"Speed: {monster_cards[card]['Speed']}\n"
-                                 f"Stealth: {monster_cards[card]['Stealth']}\n"
-                                 f"Cunning: {monster_cards[card]['Cunning']}\n")
+                if self.searchBar.text().lower() in card.lower():
+                    print_output += (f"--------------------------------\n"
+                                     f"Monster Name: {card}\n"
+                                     f"Strength: {monster_cards[card]['Strength']}\n"
+                                     f"Speed: {monster_cards[card]['Speed']}\n"
+                                     f"Stealth: {monster_cards[card]['Stealth']}\n"
+                                     f"Cunning: {monster_cards[card]['Cunning']}\n")
 
         print_output += "--------------------------------\n"
         # Print the print output to the console
