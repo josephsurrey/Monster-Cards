@@ -22,7 +22,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="monster_name_value"/>
+    <widget class="QLineEdit" name="monster_name_value">
+     <property name="maxLength">
+      <number>24</number>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
