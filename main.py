@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtGui
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
@@ -134,6 +134,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Set the title of the dialog
         add_card_dialog.setWindowTitle("Add Card")
+
+        # Set the window icon
+        add_card_dialog.setWindowIcon(QtGui.QIcon("monster_cards_icon.png"))
 
         # If the dialogue is accepted, add the card
         if add_card_dialog.exec():
@@ -294,6 +297,9 @@ class MonsterCard(QtWidgets.QWidget):
         # Open the edit card dialog
         edit_card_dialog = AddCardDialog(monster_name, strength, speed, stealth, cunning)
 
+        # Set the window icon
+        edit_card_dialog.setWindowIcon(QtGui.QIcon("monster_cards_icon.png"))
+
         # Set the title of the dialog
         edit_card_dialog.setWindowTitle("Edit Card")
 
@@ -349,8 +355,14 @@ class HelpDialog(QtWidgets.QDialog):
 
 # Run the application
 app = QtWidgets.QApplication([])
+# Set the theme
 qt_material.apply_stylesheet(app, theme="dark_lightgreen.xml")
+
 window = MainWindow()
+
+# Set the window icon
+window.setWindowIcon(QtGui.QIcon("monster_cards_icon.png"))
+
 window.show()
 window.update_cards()
 app.exec()
