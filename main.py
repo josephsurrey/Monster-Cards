@@ -2,7 +2,7 @@ from PyQt6 import QtWidgets
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
-import qdarktheme
+import qt_material
 
 monster_cards = {
     "Stoneling": {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
@@ -264,7 +264,7 @@ class MonsterCard(QtWidgets.QWidget):
             else:
                 self.selected = True
                 # Set the background color of the card to show it is selected
-                self.setStyleSheet("background-color: rgb(0, 153, 153)")
+                self.setStyleSheet(f"background-color: rgb(139, 195, 74); color: rgb(49, 54, 59);")
 
                 # Add the card to the list of selected cards
                 MainWindow.selected_cards.append(self.findChild(QtWidgets.QLabel, "monster_name").text())
@@ -348,7 +348,7 @@ class HelpDialog(QtWidgets.QDialog):
 
 # Run the application
 app = QtWidgets.QApplication([])
-qdarktheme.setup_theme("dark")
+qt_material.apply_stylesheet(app, theme="dark_lightgreen.xml")
 window = MainWindow()
 window.show()
 window.update_cards()
