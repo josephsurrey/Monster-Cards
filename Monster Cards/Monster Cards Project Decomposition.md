@@ -73,15 +73,6 @@ kanban-plugin: basic
 - [ ] Print print_output
 
 
-## Main Window - functionality - Edit card
-
-- [ ] Get information of card to be edited
-- [ ] Open AddCardDialog with card stats as arguments
-- [ ] Get updated card information from dialog
-- [ ] Update dictionary
-- [ ] Update cards
-
-
 ## Monster Card - ui
 
 - [ ] Label for title
@@ -102,10 +93,15 @@ kanban-plugin: basic
 - [ ] If true and card not selected, select
 
 
-## Monster Card - functionality - Edit card
+## Monster Card- functionality - Edit card
 
 - [ ] On mouseDoublePressEvent check if selection mode is false
-- [ ] If false, run the edit_card fuunction in MainWindow
+- [ ] If false:
+- [ ] Get information of card to be edited
+- [ ] Open AddCardDialog with card stats as arguments
+- [ ] Get updated card information from dialog
+- [ ] Update dictionary
+- [ ] Update cards
 
 
 ## Add/edit card dialog - ui
