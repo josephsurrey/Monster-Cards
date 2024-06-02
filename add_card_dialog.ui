@@ -24,7 +24,7 @@
    <item>
     <widget class="QLineEdit" name="monster_name_value">
      <property name="maxLength">
-      <number>24</number>
+      <number>16</number>
      </property>
     </widget>
    </item>
