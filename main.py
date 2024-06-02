@@ -218,8 +218,8 @@ class MainWindow(QtWidgets.QMainWindow):
         # Print the print output to the console
         print(print_output)
 
-
-    def help(self):
+    @staticmethod
+    def help():
         """
         Function to open the help dialogue.
         """
