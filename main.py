@@ -223,7 +223,9 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         Function to open the help dialogue.
         """
-        pass
+        # Open the help dialogue
+        help_dialog = HelpDialog()
+        help_dialog.exec()
 
 
 class MonsterCard(QtWidgets.QWidget):
@@ -330,6 +332,18 @@ class AddCardDialog(QtWidgets.QDialog):
             self.findChild(QtWidgets.QSpinBox, "speed_stat_value").setValue(speed)
             self.findChild(QtWidgets.QSpinBox, "stealth_stat_value").setValue(stealth)
             self.findChild(QtWidgets.QSpinBox, "cunning_stat_value").setValue(cunning)
+
+
+class HelpDialog(QtWidgets.QDialog):
+    """
+    New instance of HelpDialog class.
+    Class to hold the help dialogue.
+    """
+
+    def __init__(self):
+        super(HelpDialog, self).__init__()
+        # Loads the .ui file for the help dialogue
+        loadUi("help_dialog.ui", self)
 
 
 # Run the application
