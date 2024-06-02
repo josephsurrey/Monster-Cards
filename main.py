@@ -55,6 +55,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.searchBar = self.findChild(QtWidgets.QLineEdit, "searchBar")
         self.searchBar.textChanged.connect(self.update_cards)
 
+        # Connects the help button to the help function
+        self.helpButton = self.findChild(QtWidgets.QToolButton, "helpButton")
+        self.helpButton.clicked.connect(self.help)
+
         # Updates the cards
         self.update_cards()
 
@@ -213,6 +217,13 @@ class MainWindow(QtWidgets.QMainWindow):
         print_output += "--------------------------------\n"
         # Print the print output to the console
         print(print_output)
+
+
+    def help(self):
+        """
+        Function to open the help dialogue.
+        """
+        pass
 
 
 class MonsterCard(QtWidgets.QWidget):
